@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 //        videoUrl = Environment.getExternalStorageDirectory().getPath().concat("/办公室小野.mp4");
         mNiceVideoPlayer.setUp(videoUrl, null);
         mNiceVideoPlayer.isFullScreen();
+        mNiceVideoPlayer.continueFromLastPosition(false); //退出再进入不会从视频以前的节点开始播放
         TxVideoPlayerController controller = new TxVideoPlayerController(this);
         controller.setTitle("办公室小野开番外了，居然在办公室开澡堂！老板还点赞？");
         controller.setLenght(98000);

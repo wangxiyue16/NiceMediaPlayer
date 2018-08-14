@@ -39,7 +39,6 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     private boolean mIsReleased;
     private static MediaInfo sMediaInfo;
 
-    @RequiresApi(api = VERSION_CODES.CUPCAKE)
     public AndroidMediaPlayer() {
         Object var1 = this.mInitLock;
         synchronized (this.mInitLock) {
@@ -65,7 +64,6 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
         }
     }
 
-    @TargetApi(14)
     public void setSurface(Surface surface) {
         this.mInternalMediaPlayer.setSurface(surface);
     }
@@ -74,7 +72,6 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
         this.mInternalMediaPlayer.setDataSource(context, uri);
     }
 
-    @TargetApi(14)
     public void setDataSource(Context context, Uri uri, Map<String, String> headers) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
         this.mInternalMediaPlayer.setDataSource(context, uri, headers);
     }
@@ -190,7 +187,6 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
         }
     }
 
-    @RequiresApi(api = VERSION_CODES.CUPCAKE)
     public void release() {
         this.mIsReleased = true;
         this.mInternalMediaPlayer.release();
@@ -199,7 +195,6 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
         this.attachInternalListeners();
     }
 
-    @RequiresApi(api = VERSION_CODES.CUPCAKE)
     public void reset() {
         try {
             this.mInternalMediaPlayer.reset();
@@ -216,7 +211,6 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
         this.mInternalMediaPlayer.setLooping(looping);
     }
 
-    @RequiresApi(api = VERSION_CODES.CUPCAKE)
     public boolean isLooping() {
         return this.mInternalMediaPlayer.isLooping();
     }
@@ -225,7 +219,6 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
         this.mInternalMediaPlayer.setVolume(leftVolume, rightVolume);
     }
 
-    @RequiresApi(api = VERSION_CODES.GINGERBREAD)
     public int getAudioSessionId() {
         return this.mInternalMediaPlayer.getAudioSessionId();
     }
@@ -262,7 +255,6 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     }
 
     @TargetApi(VERSION_CODES.JELLY_BEAN)
-    @RequiresApi(api = VERSION_CODES.CUPCAKE)
     private void attachInternalListeners() {
         this.mInternalMediaPlayer.setOnPreparedListener(this.mInternalListenerAdapter);
         this.mInternalMediaPlayer.setOnBufferingUpdateListener(this.mInternalListenerAdapter);
@@ -275,7 +267,6 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     }
 
     @TargetApi(VERSION_CODES.JELLY_BEAN)
-    @RequiresApi(api = VERSION_CODES.CUPCAKE)
     private class AndroidMediaPlayerListenerHolder implements android.media.MediaPlayer.OnPreparedListener, android.media.MediaPlayer.OnCompletionListener, android.media.MediaPlayer.OnBufferingUpdateListener, android.media.MediaPlayer.OnSeekCompleteListener, android.media.MediaPlayer.OnVideoSizeChangedListener, android.media.MediaPlayer.OnErrorListener, android.media.MediaPlayer.OnInfoListener, android.media.MediaPlayer.OnTimedTextListener {
         public final WeakReference<AndroidMediaPlayer> mWeakMediaPlayer;
 

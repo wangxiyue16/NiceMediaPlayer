@@ -31,7 +31,6 @@ import java.util.Map;
  * author: WDSG
  * date 2018/8/14
  */
-@RequiresApi(api = VERSION_CODES.ICE_CREAM_SANDWICH)
 public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, TextureView.SurfaceTextureListener {
     private final String TAG = "NiceVideoPlayer";
 

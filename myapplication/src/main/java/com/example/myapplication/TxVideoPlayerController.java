@@ -172,14 +172,14 @@ public class TxVideoPlayerController extends NiceVideoPlayerController implement
     @Override
     public void setNiceVideoPlayer(INiceVideoPlayer niceVideoPlayer) {
         super.setNiceVideoPlayer(niceVideoPlayer);
-        // 给播放器配置视频链接地址
+        // 给播放器配置视频链接地址（注：只有NiceVideoPlayerController子类先设置了清晰度setClarity()代码才会继续执行）
         if (clarities != null && clarities.size() > 1) {
             mNiceVideoPlayer.setUp(clarities.get(defaultClarityIndex).videoUrl, null);
         }
     }
 
     /**
-     * 设置清晰度
+     * 设置清晰度(目前不同清晰度对应视频链接是不同的)
      *
      * @param clarities 清晰度及链接
      */
