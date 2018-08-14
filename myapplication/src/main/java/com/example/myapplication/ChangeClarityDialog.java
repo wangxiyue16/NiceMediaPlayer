@@ -25,7 +25,7 @@ public class ChangeClarityDialog extends Dialog {
     private int mCurrentCheckedIndex;
 
     public ChangeClarityDialog(Context context) {
-        super(context, com.ijkplayerlib.R.style.dialog_change_clarity);
+        super(context, R.style.dialog_change_clarity);
         init(context);
     }
 
@@ -64,7 +64,7 @@ public class ChangeClarityDialog extends Dialog {
         mCurrentCheckedIndex = defaultChecked;
         for (int i = 0; i < items.size(); i++) {
             TextView itemView = (TextView) LayoutInflater.from(getContext())
-                    .inflate(com.ijkplayerlib.R.layout.item_change_clarity, mLinearLayout, false);
+                    .inflate(R.layout.item_change_clarity, mLinearLayout, false);
             itemView.setTag(i);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

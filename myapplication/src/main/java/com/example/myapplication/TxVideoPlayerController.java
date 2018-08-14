@@ -95,46 +95,46 @@ public class TxVideoPlayerController extends NiceVideoPlayerController implement
     }
 
     private void init() {
-        LayoutInflater.from(mContext).inflate(com.ijkplayerlib.R.layout.tx_video_palyer_controller, this, true);
+        LayoutInflater.from(mContext).inflate(R.layout.tx_video_palyer_controller, this, true);
 
-        mCenterStart = (ImageView) findViewById(com.ijkplayerlib.R.id.center_start);
-        mImage = (ImageView) findViewById(com.ijkplayerlib.R.id.image);
+        mCenterStart = (ImageView) findViewById(R.id.center_start);
+        mImage = (ImageView) findViewById(R.id.iv_image);
 
-        mTop = (LinearLayout) findViewById(com.ijkplayerlib.R.id.top);
-        mBack = (ImageView) findViewById(com.ijkplayerlib.R.id.back);
-        mTitle = (TextView) findViewById(com.ijkplayerlib.R.id.title);
-        mBatteryTime = (LinearLayout) findViewById(com.ijkplayerlib.R.id.battery_time);
-        mBattery = (ImageView) findViewById(com.ijkplayerlib.R.id.battery);
-        mTime = (TextView) findViewById(com.ijkplayerlib.R.id.time);
+        mTop = (LinearLayout) findViewById(R.id.top);
+        mBack = (ImageView) findViewById(R.id.back);
+        mTitle = (TextView) findViewById(R.id.title);
+        mBatteryTime = (LinearLayout) findViewById(R.id.battery_time);
+        mBattery = (ImageView) findViewById(R.id.battery);
+        mTime = (TextView) findViewById(R.id.time);
 
-        mBottom = (LinearLayout) findViewById(com.ijkplayerlib.R.id.bottom);
-        mRestartPause = (ImageView) findViewById(com.ijkplayerlib.R.id.restart_or_pause);
-        mPosition = (TextView) findViewById(com.ijkplayerlib.R.id.position);
-        mDuration = (TextView) findViewById(com.ijkplayerlib.R.id.duration);
-        mSeek = (SeekBar) findViewById(com.ijkplayerlib.R.id.seek);
-        mFullScreen = (ImageView) findViewById(com.ijkplayerlib.R.id.full_screen);
-        mClarity = (TextView) findViewById(com.ijkplayerlib.R.id.clarity);
-        mLength = (TextView) findViewById(com.ijkplayerlib.R.id.length);
+        mBottom = (LinearLayout) findViewById(R.id.bottom);
+        mRestartPause = (ImageView) findViewById(R.id.restart_or_pause);
+        mPosition = (TextView) findViewById(R.id.position);
+        mDuration = (TextView) findViewById(R.id.duration);
+        mSeek = (SeekBar) findViewById(R.id.seek);
+        mFullScreen = (ImageView) findViewById(R.id.full_screen);
+        mClarity = (TextView) findViewById(R.id.clarity);
+        mLength = (TextView) findViewById(R.id.length);
 
-        mLoading = (LinearLayout) findViewById(com.ijkplayerlib.R.id.loading);
-        mLoadText = (TextView) findViewById(com.ijkplayerlib.R.id.load_text);
+        mLoading = (LinearLayout) findViewById(R.id.loading);
+        mLoadText = (TextView) findViewById(R.id.load_text);
 
-        mChangePositon = (LinearLayout) findViewById(com.ijkplayerlib.R.id.change_position);
-        mChangePositionCurrent = (TextView) findViewById(com.ijkplayerlib.R.id.change_position_current);
-        mChangePositionProgress = (ProgressBar) findViewById(com.ijkplayerlib.R.id.change_position_progress);
+        mChangePositon = (LinearLayout) findViewById(R.id.change_position);
+        mChangePositionCurrent = (TextView) findViewById(R.id.change_position_current);
+        mChangePositionProgress = (ProgressBar) findViewById(R.id.change_position_progress);
 
-        mChangeBrightness = (LinearLayout) findViewById(com.ijkplayerlib.R.id.change_brightness);
-        mChangeBrightnessProgress = (ProgressBar) findViewById(com.ijkplayerlib.R.id.change_brightness_progress);
+        mChangeBrightness = (LinearLayout) findViewById(R.id.change_brightness);
+        mChangeBrightnessProgress = (ProgressBar) findViewById(R.id.change_brightness_progress);
 
-        mChangeVolume = (LinearLayout) findViewById(com.ijkplayerlib.R.id.change_volume);
-        mChangeVolumeProgress = (ProgressBar) findViewById(com.ijkplayerlib.R.id.change_volume_progress);
+        mChangeVolume = (LinearLayout) findViewById(R.id.change_volume);
+        mChangeVolumeProgress = (ProgressBar) findViewById(R.id.change_volume_progress);
 
-        mError = (LinearLayout) findViewById(com.ijkplayerlib.R.id.error);
-        mRetry = (TextView) findViewById(com.ijkplayerlib.R.id.retry);
+        mError = (LinearLayout) findViewById(R.id.error);
+        mRetry = (TextView) findViewById(R.id.retry);
 
-        mCompleted = (LinearLayout) findViewById(com.ijkplayerlib.R.id.completed);
-        mReplay = (TextView) findViewById(com.ijkplayerlib.R.id.replay);
-        mShare = (TextView) findViewById(com.ijkplayerlib.R.id.share);
+        mCompleted = (LinearLayout) findViewById(R.id.completed);
+        mReplay = (TextView) findViewById(R.id.replay);
+        mShare = (TextView) findViewById(R.id.share);
 
         mCenterStart.setOnClickListener(this);
         mBack.setOnClickListener(this);
@@ -225,23 +225,23 @@ public class TxVideoPlayerController extends NiceVideoPlayerController implement
                 break;
             case NiceVideoPlayer.STATE_PLAYING:
                 mLoading.setVisibility(View.GONE);
-                mRestartPause.setImageResource(com.ijkplayerlib.R.drawable.ic_player_pause);
+                mRestartPause.setImageResource(R.drawable.ic_player_pause);
                 startDismissTopBottomTimer();
                 break;
             case NiceVideoPlayer.STATE_PAUSED:
                 mLoading.setVisibility(View.GONE);
-                mRestartPause.setImageResource(com.ijkplayerlib.R.drawable.ic_player_start);
+                mRestartPause.setImageResource(R.drawable.ic_player_start);
                 cancelDismissTopBottomTimer();
                 break;
             case NiceVideoPlayer.STATE_BUFFERING_PLAYING:
                 mLoading.setVisibility(View.VISIBLE);
-                mRestartPause.setImageResource(com.ijkplayerlib.R.drawable.ic_player_pause);
+                mRestartPause.setImageResource(R.drawable.ic_player_pause);
                 mLoadText.setText("正在缓冲...");
                 startDismissTopBottomTimer();
                 break;
             case NiceVideoPlayer.STATE_BUFFERING_PAUSED:
                 mLoading.setVisibility(View.VISIBLE);
-                mRestartPause.setImageResource(com.ijkplayerlib.R.drawable.ic_player_start);
+                mRestartPause.setImageResource(R.drawable.ic_player_start);
                 mLoadText.setText("正在缓冲...");
                 cancelDismissTopBottomTimer();
                 break;
@@ -265,7 +265,7 @@ public class TxVideoPlayerController extends NiceVideoPlayerController implement
         switch (playMode) {
             case NiceVideoPlayer.MODE_NORMAL:
                 mBack.setVisibility(View.GONE);
-                mFullScreen.setImageResource(com.ijkplayerlib.R.drawable.ic_player_enlarge);
+                mFullScreen.setImageResource(R.drawable.ic_player_enlarge);
                 mFullScreen.setVisibility(View.VISIBLE);
                 mClarity.setVisibility(View.GONE);
                 mBatteryTime.setVisibility(View.GONE);
@@ -277,7 +277,7 @@ public class TxVideoPlayerController extends NiceVideoPlayerController implement
             case NiceVideoPlayer.MODE_FULL_SCREEN:
                 mBack.setVisibility(View.VISIBLE);
                 mFullScreen.setVisibility(View.GONE);
-                mFullScreen.setImageResource(com.ijkplayerlib.R.drawable.ic_player_shrink);
+                mFullScreen.setImageResource(R.drawable.ic_player_shrink);
                 if (clarities != null && clarities.size() > 1) {
                     mClarity.setVisibility(View.VISIBLE);
                 }
@@ -305,24 +305,24 @@ public class TxVideoPlayerController extends NiceVideoPlayerController implement
                     BatteryManager.BATTERY_STATUS_UNKNOWN);
             if (status == BatteryManager.BATTERY_STATUS_CHARGING) {
                 // 充电中
-                mBattery.setImageResource(com.ijkplayerlib.R.drawable.battery_charging);
+                mBattery.setImageResource(R.drawable.battery_charging);
             } else if (status == BatteryManager.BATTERY_STATUS_FULL) {
                 // 充电完成
-                mBattery.setImageResource(com.ijkplayerlib.R.drawable.battery_full);
+                mBattery.setImageResource(R.drawable.battery_full);
             } else {
                 int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
                 int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, 0);
                 int percentage = (int) (((float) level / scale) * 100);
                 if (percentage <= 10) {
-                    mBattery.setImageResource(com.ijkplayerlib.R.drawable.battery_10);
+                    mBattery.setImageResource(R.drawable.battery_10);
                 } else if (percentage <= 20) {
-                    mBattery.setImageResource(com.ijkplayerlib.R.drawable.battery_20);
+                    mBattery.setImageResource(R.drawable.battery_20);
                 } else if (percentage <= 50) {
-                    mBattery.setImageResource(com.ijkplayerlib.R.drawable.battery_50);
+                    mBattery.setImageResource(R.drawable.battery_50);
                 } else if (percentage <= 80) {
-                    mBattery.setImageResource(com.ijkplayerlib.R.drawable.battery_80);
+                    mBattery.setImageResource(R.drawable.battery_80);
                 } else if (percentage <= 100) {
-                    mBattery.setImageResource(com.ijkplayerlib.R.drawable.battery_100);
+                    mBattery.setImageResource(R.drawable.battery_100);
                 }
             }
         }
@@ -340,7 +340,7 @@ public class TxVideoPlayerController extends NiceVideoPlayerController implement
         mImage.setVisibility(View.VISIBLE);
 
         mBottom.setVisibility(View.GONE);
-        mFullScreen.setImageResource(com.ijkplayerlib.R.drawable.ic_player_enlarge);
+        mFullScreen.setImageResource(R.drawable.ic_player_enlarge);
 
         mLength.setVisibility(View.VISIBLE);
 
