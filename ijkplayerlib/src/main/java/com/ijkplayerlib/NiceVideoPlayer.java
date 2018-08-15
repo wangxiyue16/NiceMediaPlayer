@@ -608,7 +608,7 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
         ViewGroup contentView = (ViewGroup) NiceUtil.scanForActivity(mContext)
                 .findViewById(android.R.id.content);
         // 小窗口的宽度为屏幕宽度的60%，长宽比默认为16:9，右边距、下边距为8dp。
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+        LayoutParams params = new LayoutParams(
                 (int) (NiceUtil.getScreenWidth(mContext) * 0.6f),
                 (int) (NiceUtil.getScreenWidth(mContext) * 0.6f * 9f / 16f));
         params.gravity = Gravity.BOTTOM | Gravity.END;
