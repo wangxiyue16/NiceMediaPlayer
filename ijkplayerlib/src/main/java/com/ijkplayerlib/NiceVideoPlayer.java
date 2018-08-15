@@ -94,6 +94,8 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
      */
     public static final boolean IS_ONTOUCH = true;
 
+    public static final boolean Is_CanExitFullScreenAndTinyWindow = true;
+
     private int mPlayerType = TYPE_NATIVE;
     private int mCurrentState = STATE_IDLE;
     private int mCurrentMode = MODE_NORMAL;
@@ -112,6 +114,7 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
     private long skipToPosition;
     private boolean continueFromLastPosition = true;
     private boolean mIsOnTouch = IS_ONTOUCH;
+    private boolean mIsCanExitFullScreenAndTinyWindow = Is_CanExitFullScreenAndTinyWindow;
 
     public NiceVideoPlayer(Context context) {
         this(context, null);
@@ -680,11 +683,13 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
             NiceUtil.savePlayPosition(mContext, mUrl, 0);
         }
         // 退出全屏或小窗口
-        if (isFullScreen()) {
-            exitFullScreen();
-        }
-        if (isTinyWindow()) {
-            exitTinyWindow();
+        if (isCanExitFullScreenAndTinyWindow()){
+            if (isFullScreen()) {
+                exitFullScreen();
+            }
+            if (isTinyWindow()) {
+                exitTinyWindow();
+            }
         }
         mCurrentMode = MODE_NORMAL;
 
@@ -720,5 +725,15 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
     @Override
     public boolean isOnTouch() {
         return mIsOnTouch;
+    }
+
+    @Override
+    public void setIsCanExitFullScreenAndTinyWindow(boolean isCanExitFullScreenAndTinyWindow) {
+        mIsCanExitFullScreenAndTinyWindow = isCanExitFullScreenAndTinyWindow;
+    }
+
+    @Override
+    public boolean isCanExitFullScreenAndTinyWindow() {
+        return mIsCanExitFullScreenAndTinyWindow;
     }
 }

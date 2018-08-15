@@ -66,4 +66,11 @@ public class MainActivity extends AppCompatActivity {
         if (NiceVideoPlayerManager.instance().onBackPressd()) return;
         super.onBackPressed();
     }
+
+    @Override
+    public void finish() {
+        if (null != mNiceVideoPlayer)
+        mNiceVideoPlayer.cleanPlayPosition();
+        super.finish();
+    }
 }
