@@ -698,6 +698,20 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
         Runtime.getRuntime().gc();
     }
 
+    public void cleanPlayPosition() {
+        NiceUtil.savePlayPosition(mContext, mUrl, 0);
+    }
+
+    public void setPlayPosition(long position) {
+        try {
+            if (position <= getDuration()) {
+                NiceUtil.savePlayPosition(mContext, mUrl, position);
+            }
+        } catch (Exception e){
+            LogMgr.e(TAG, "setPlayPosition:" + e.getMessage());
+        }
+    }
+
     @Override
     public void setOnTouch(boolean isOnTouch) {
         mIsOnTouch = isOnTouch;
