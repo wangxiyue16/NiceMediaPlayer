@@ -130,21 +130,21 @@ public interface INiceVideoPlayer {
     //*************** 以下7个方法是播放器模式相关 ******************//
 
     /**
-     * 是否全屏模式
+     * 获取当前是否是全屏模式
      *
      * @return
      */
     boolean isFullScreen();
 
     /**
-     * 是否小窗口模式
+     * 获取当前是否是小窗口模式
      *
      * @return
      */
     boolean isTinyWindow();
 
     /**
-     * 是否默认模式
+     * 获取当前是否是默认模式
      *
      * @return
      */
