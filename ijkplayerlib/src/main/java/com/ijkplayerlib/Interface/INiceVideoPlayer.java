@@ -181,6 +181,8 @@ public interface INiceVideoPlayer {
 
     /**
      * 获取播放器执行release()方法时是否退出全屏以及小窗口模式
+     *
+     * @return true 播放器执行release()方法时退出全屏以及小窗口模式
      */
     boolean isCanExitFullScreenAndTinyWindow();
 

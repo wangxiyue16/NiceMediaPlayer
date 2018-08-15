@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 //                .into(controller.imageView());
         mNiceVideoPlayer.setController(controller);
         mNiceVideoPlayer.enterFullScreen(); //进入全屏模式
+        mNiceVideoPlayer.setIsCanExitFullScreenAndTinyWindow(false);
     }
 
     public void enterTinyWindow(View view) {
