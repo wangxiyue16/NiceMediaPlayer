@@ -223,4 +223,14 @@ public interface INiceVideoPlayer {
      * 并且控制器的UI也应该恢复到最初始的状态.
      */
     void release();
+
+    /**
+     * 设置是否可以手势调节音量大小以及亮度，ture表示可以调节
+     */
+    void setOnTouch(boolean isOnTouch);
+
+    /**
+     * 是否可以手势调节音量大小以及亮度，ture标识可以调节
+     */
+    boolean isOnTouch();
 }

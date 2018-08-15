@@ -95,8 +95,12 @@ public abstract class NiceVideoPlayerController
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        // 只有全屏的时候才能拖动位置、亮度、声音
+        // 只有全屏的时候才能手势拖动播放位置、亮度、声音
         if (!mNiceVideoPlayer.isFullScreen()) {
+            return false;
+        }
+        // 只有允许手势滑动的时候才能手势拖动播放位置、亮度、声音
+        if (!mNiceVideoPlayer.isOnTouch()){
             return false;
         }
         // 只有在播放、暂停、缓冲的时候能够拖动改变位置、亮度和声音

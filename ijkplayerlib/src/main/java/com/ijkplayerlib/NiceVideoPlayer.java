@@ -89,6 +89,11 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
      **/
     public static final int TYPE_NATIVE = 222;
 
+    /**
+     * ontouch,是否可以调节音量以及亮度
+     */
+    public static final boolean IS_ONTOUCH = true;
+
     private int mPlayerType = TYPE_NATIVE;
     private int mCurrentState = STATE_IDLE;
     private int mCurrentMode = MODE_NORMAL;
@@ -104,8 +109,9 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
     private String mUrl;
     private Map<String, String> mHeaders;
     private int mBufferPercentage;
-    private boolean continueFromLastPosition = true;
     private long skipToPosition;
+    private boolean continueFromLastPosition = true;
+    private boolean mIsOnTouch = IS_ONTOUCH;
 
     public NiceVideoPlayer(Context context) {
         this(context, null);
@@ -674,5 +680,15 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
             mController.reset();
         }
         Runtime.getRuntime().gc();
+    }
+
+    @Override
+    public void setOnTouch(boolean isOnTouch) {
+        mIsOnTouch = isOnTouch;
+    }
+
+    @Override
+    public boolean isOnTouch() {
+        return mIsOnTouch;
     }
 }
