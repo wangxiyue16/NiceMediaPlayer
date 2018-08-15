@@ -1,5 +1,6 @@
 package com.ijkplayerlib.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -52,6 +53,7 @@ public class NiceUtil {
         return null;
     }
 
+    @SuppressLint("RestrictedApi")
     public static void showActionBar(Context context) {
         ActionBar ab = getAppCompActivity(context).getSupportActionBar();
         if (ab != null) {
@@ -63,6 +65,7 @@ public class NiceUtil {
                 .clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
+    @SuppressLint("RestrictedApi")
     public static void hideActionBar(Context context) {
         ActionBar ab = getAppCompActivity(context).getSupportActionBar();
         if (ab != null) {
