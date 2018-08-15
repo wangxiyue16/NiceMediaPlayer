@@ -151,24 +151,24 @@ public interface INiceVideoPlayer {
     boolean isNormal();
 
     /**
-     * 打开全屏模式
+     * 打开全屏模式（要先给NiceVideoPlayer设置NiceVideoPlayerController才能在外部调用此方法）
      */
     void enterFullScreen();
 
     /**
-     * 退出全屏模式
+     * 退出全屏模式（要先给NiceVideoPlayer设置NiceVideoPlayerController才能在外部调用此方法）
      *
      * @return true 退出
      */
     boolean exitFullScreen();
 
     /**
-     * 打开小窗口模式
+     * 打开小窗口模式（要先给NiceVideoPlayer设置NiceVideoPlayerController才能在外部调用此方法）
      */
     void enterTinyWindow();
 
     /**
-     * 退出小窗口模式
+     * 退出小窗口模式（要先给NiceVideoPlayer设置NiceVideoPlayerController才能在外部调用此方法）
      *
      * @return true 退出小窗口
      */

@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         String videoUrl = "http://tanzi27niu.cdsb.mobi/wps/wp-content/uploads/2017/05/2017-05-17_17-33-30.mp4";
 //        videoUrl = Environment.getExternalStorageDirectory().getPath().concat("/办公室小野.mp4");
         mNiceVideoPlayer.setUp(videoUrl, null);
-        mNiceVideoPlayer.isFullScreen();
         mNiceVideoPlayer.continueFromLastPosition(false); //退出再进入不会从视频以前的节点开始播放
         mNiceVideoPlayer.setOnTouch(false);
         TxVideoPlayerController controller = new TxVideoPlayerController(this);
@@ -37,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 //                .crossFade()
 //                .into(controller.imageView());
         mNiceVideoPlayer.setController(controller);
+        mNiceVideoPlayer.enterFullScreen(); //进入全屏模式
     }
 
     public void enterTinyWindow(View view) {

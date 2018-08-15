@@ -550,7 +550,11 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
         contentView.addView(mContainer, params);
 
         mCurrentMode = MODE_FULL_SCREEN;
-        mController.onPlayModeChanged(mCurrentMode);
+        try {
+            mController.onPlayModeChanged(mCurrentMode);
+        } catch (Exception e) {
+            LogMgr.e(TAG, "enterFullScreen：请先给NiceVideoPlayer设置NiceVideoPlayerController");
+        }
         LogMgr.d(TAG, "MODE_FULL_SCREEN");
     }
 
@@ -577,7 +581,11 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
             this.addView(mContainer, params);
 
             mCurrentMode = MODE_NORMAL;
-            mController.onPlayModeChanged(mCurrentMode);
+            try {
+                mController.onPlayModeChanged(mCurrentMode);
+            } catch (Exception e) {
+                LogMgr.e(TAG, "exitFullScreen：请先给NiceVideoPlayer设置NiceVideoPlayerController");
+            }
             LogMgr.d(TAG, "MODE_NORMAL");
             return true;
         }
@@ -607,7 +615,11 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
         contentView.addView(mContainer, params);
 
         mCurrentMode = MODE_TINY_WINDOW;
-        mController.onPlayModeChanged(mCurrentMode);
+        try {
+            mController.onPlayModeChanged(mCurrentMode);
+        } catch (Exception e) {
+            LogMgr.e(TAG, "enterTinyWindow：请先给NiceVideoPlayer设置NiceVideoPlayerController");
+        }
         LogMgr.d(TAG, "MODE_TINY_WINDOW");
     }
 
@@ -626,7 +638,11 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
             this.addView(mContainer, params);
 
             mCurrentMode = MODE_NORMAL;
-            mController.onPlayModeChanged(mCurrentMode);
+            try {
+                mController.onPlayModeChanged(mCurrentMode);
+            } catch (Exception e) {
+                LogMgr.e(TAG, "exitTinyWindow：请先给NiceVideoPlayer设置NiceVideoPlayerController");
+            }
             LogMgr.d(TAG, "MODE_NORMAL");
             return true;
         }
