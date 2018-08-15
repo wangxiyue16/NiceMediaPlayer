@@ -9,6 +9,8 @@ import android.support.v7.view.ContextThemeWrapper;
 import android.util.TypedValue;
 import android.view.WindowManager;
 
+import com.ijkplayerlib.App;
+
 import java.util.Formatter;
 import java.util.Locale;
 
@@ -131,11 +133,10 @@ public class NiceUtil {
     /**
      * 保存播放位置，以便下次播放时接着上次的位置继续播放.
      *
-     * @param context
      * @param url     视频链接url
      */
-    public static void savePlayPosition(Context context, String url, long position) {
-        context.getSharedPreferences("NICE_VIDEO_PALYER_PLAY_POSITION",
+    public static void savePlayPosition(String url, long position) {
+        App.ct().getSharedPreferences("NICE_VIDEO_PALYER_PLAY_POSITION",
                 Context.MODE_PRIVATE)
                 .edit()
                 .putLong(url, position)
@@ -145,12 +146,11 @@ public class NiceUtil {
     /**
      * 取出上次保存的播放位置
      *
-     * @param context
      * @param url     视频链接url
      * @return 上次保存的播放位置
      */
-    public static long getSavedPlayPosition(Context context, String url) {
-        return context.getSharedPreferences("NICE_VIDEO_PALYER_PLAY_POSITION",
+    public static long getSavedPlayPosition(String url) {
+        return App.ct().getSharedPreferences("NICE_VIDEO_PALYER_PLAY_POSITION",
                 Context.MODE_PRIVATE)
                 .getLong(url, 0);
     }

@@ -425,7 +425,7 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
             mp.start();
             // 从上次的保存位置播放
             if (continueFromLastPosition) {
-                long savedPlayPosition = NiceUtil.getSavedPlayPosition(mContext, mUrl);
+                long savedPlayPosition = NiceUtil.getSavedPlayPosition(mUrl);
                 mp.seekTo(savedPlayPosition);
             }
             // 跳到指定位置播放
@@ -678,9 +678,9 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
     public void release() {
         // 保存播放位置
         if (isPlaying() || isBufferingPlaying() || isBufferingPaused() || isPaused()) {
-            NiceUtil.savePlayPosition(mContext, mUrl, getCurrentPosition());
+            NiceUtil.savePlayPosition(mUrl, getCurrentPosition());
         } else if (isCompleted()) {
-            NiceUtil.savePlayPosition(mContext, mUrl, 0);
+            NiceUtil.savePlayPosition(mUrl, 0);
         }
         // 退出全屏或小窗口
         if (isCanExitFullScreenAndTinyWindow()){
@@ -704,13 +704,13 @@ public class NiceVideoPlayer extends FrameLayout implements INiceVideoPlayer, Te
     }
 
     public void cleanPlayPosition() {
-        NiceUtil.savePlayPosition(mContext, mUrl, 0);
+        NiceUtil.savePlayPosition(mUrl, 0);
     }
 
     public void setPlayPosition(long position) {
         try {
             if (position <= getDuration()) {
-                NiceUtil.savePlayPosition(mContext, mUrl, position);
+                NiceUtil.savePlayPosition(mUrl, position);
             }
         } catch (Exception e){
             LogMgr.e(TAG, "setPlayPosition:" + e.getMessage());

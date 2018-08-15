@@ -17,9 +17,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ijkplayerlib.Interface.INiceVideoPlayer;
+import com.ijkplayerlib.LogMgr;
 import com.ijkplayerlib.NiceVideoPlayer;
-import com.ijkplayerlib.controller.NiceVideoPlayerController;
 import com.ijkplayerlib.bean.Clarity;
+import com.ijkplayerlib.controller.NiceVideoPlayerController;
 import com.ijkplayerlib.utils.NiceUtil;
 
 import java.text.SimpleDateFormat;
@@ -283,8 +284,11 @@ public class TxVideoPlayerController extends NiceVideoPlayerController implement
                 }
                 mBatteryTime.setVisibility(View.VISIBLE);
                 if (!hasRegisterBatteryReceiver) {
-                    mContext.registerReceiver(mBatterReceiver,
-                            new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+                    try {
+                        mContext.registerReceiver(mBatterReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+                    } catch (Exception e) {
+                        LogMgr.e("controller", e.getMessage());
+                    }
                     hasRegisterBatteryReceiver = true;
                 }
                 break;

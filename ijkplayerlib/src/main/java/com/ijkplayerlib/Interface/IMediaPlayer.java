@@ -72,6 +72,11 @@ public interface IMediaPlayer {
 
     boolean isPlaying();
 
+    /**
+     * 视频播放进度跳转到指定var1位置
+     * @param var1
+     * @throws IllegalStateException
+     */
     void seekTo(long var1) throws IllegalStateException;
 
     long getCurrentPosition();

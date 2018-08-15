@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.ijkplayerlib.LogMgr;
 import com.ijkplayerlib.NiceVideoPlayer;
 import com.ijkplayerlib.manager.NiceVideoPlayerManager;
+import com.ijkplayerlib.utils.NiceUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,13 +21,14 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
+    String videoUrl;
     private void init() {
         mNiceVideoPlayer = (NiceVideoPlayer) findViewById(R.id.nice_video_player);
         mNiceVideoPlayer.setPlayerType(NiceVideoPlayer.TYPE_NATIVE); // IjkPlayer or MediaPlayer
-        String videoUrl = "http://tanzi27niu.cdsb.mobi/wps/wp-content/uploads/2017/05/2017-05-17_17-33-30.mp4";
+        videoUrl = "http://tanzi27niu.cdsb.mobi/wps/wp-content/uploads/2017/05/2017-05-17_17-33-30.mp4";
 //        videoUrl = Environment.getExternalStorageDirectory().getPath().concat("/办公室小野.mp4");
         mNiceVideoPlayer.setUp(videoUrl, null);
-        mNiceVideoPlayer.continueFromLastPosition(false); //退出再进入不会从视频以前的节点开始播放
+//        mNiceVideoPlayer.continueFromLastPosition(true); //退出再进入不会从视频以前的节点开始播放
         mNiceVideoPlayer.setOnTouch(false);
         TxVideoPlayerController controller = new TxVideoPlayerController(this);
         controller.setTitle("办公室小野开番外了，居然在办公室开澡堂！老板还点赞？");
@@ -57,21 +60,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onPause() {
+        super.onPause();
         NiceVideoPlayerManager.instance().releaseNiceVideoPlayer();
     }
 
-    @Override
-    public void onBackPressed() {
-        if (NiceVideoPlayerManager.instance().onBackPressd()) return;
-        super.onBackPressed();
-    }
+    //    @Override
+//    public void onBackPressed() {
+//        if (NiceVideoPlayerManager.instance().onBackPressd()) return;
+//        super.onBackPressed();
+//    }
 
     @Override
-    public void finish() {
-        if (null != mNiceVideoPlayer)
-        mNiceVideoPlayer.cleanPlayPosition();
-        super.finish();
+    protected void onDestroy() {
+        if (null != mNiceVideoPlayer){
+            mNiceVideoPlayer.cleanPlayPosition();
+        }
+        super.onDestroy();
     }
 }
